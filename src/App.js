@@ -1,10 +1,13 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SearchBar from './components/SearchBar';
+import Contact from './components/Contact'; 
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
 import './App.css';
 
 const theme = createTheme({
@@ -32,8 +35,20 @@ function App() {
         <div className="App">
           <Header />
           <main>
-            <Hero />
-            <SearchBar />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Hero />
+                    <SearchBar />
+                  </>
+                }
+              />
+              <Route path="/kontakti" element={<Contact />} /> 
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+            </Routes>
           </main>
         </div>
       </ThemeProvider>
@@ -41,4 +56,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

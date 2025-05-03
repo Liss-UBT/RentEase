@@ -13,7 +13,9 @@ const Header = () => {
           <Link to="/Për Ne" className="nav-link">Për Ne</Link>
           <Link to="/Kërko pronën" className="nav-link">Kërko pronën</Link>
           <Link to="/Kontakti" className="nav-link">Kontakti</Link>
-          <button className="login-button">Login</button>
+          <Link to="/login">
+            <button className="login-button">Login</button>
+          </Link>
         </nav>
       </div>
     </header>
