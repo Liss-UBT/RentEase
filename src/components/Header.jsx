@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+  };
+
   return (
     <header className="header">
       <div className="header-container">
-        <Link to="/" className="logo">
-          Rent Ease
-        </Link>
-        <nav className="nav-links">
-          <Link to="/Për Ne" className="nav-link">Për Ne</Link>
-          <Link to="/Kërko pronën" className="nav-link">Kërko pronën</Link>
-          <Link to="/Kontakti" className="nav-link">Kontakti</Link>
-          <Link to="/login">
+        <Link to="/" className="logo">Rent Ease</Link>
+        <button className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
+          <Link to="/Për Ne" className="nav-link" onClick={() => setMenuOpen(false)}>Për Ne</Link>
+          <Link to="/Kërko pronën" className="nav-link" onClick={() => setMenuOpen(false)}>Kërko pronën</Link>
+          <Link to="/Kontakti" className="nav-link" onClick={() => setMenuOpen(false)}>Kontakti</Link>
+          <Link to="/login" onClick={() => setMenuOpen(false)}>
             <button className="login-button">Login</button>
           </Link>
         </nav>
@@ -22,4 +31,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;
