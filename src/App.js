@@ -8,7 +8,9 @@ import SearchBar from './components/SearchBar';
 import Contact from './components/Contact'; 
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
+import SearchPage from './components/SearchPage';
 import './App.css';
+import Property from './components/Property';
 
 const theme = createTheme({
   palette: {
@@ -48,6 +50,8 @@ function App() {
               <Route path="/kontakti" element={<Contact />} /> 
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/property/:id" element={<Property />} />
             </Routes>
           </main>
         </div>
